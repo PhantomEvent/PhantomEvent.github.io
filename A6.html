@@ -26,7 +26,7 @@
                 return;
             }
 
-            const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
+            const web3 = new Web3(new Web3.providers.WebsocketProvider(httpProvider));
 
             const contractABI = [
      
@@ -68,3 +68,4 @@
     </script>
 </body>
 </html>
+
