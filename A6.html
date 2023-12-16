@@ -18,19 +18,11 @@
     <div id="events"></div>
 
     <script>
-        
-        if (typeof web3 !== 'undefined') {
-            web3 = new Web3(web3.currentProvider);
-        } else {
-            web3 = new Web3(new Web3.providers.HttpProvider("https://data-seed-prebsc-1-s1.binance.org:8545"));
-        }
 
-        
-        web3.eth.net.isListening()
-            .then(() => console.log('Connected to Ethereum network'))
-            .catch(e => console.error('Wow. Something went wrong'));
+        const web3 = new Web3(new Web3.providers.WebsocketProvider("https://data-seed-prebsc-1-s1.binance.org:8545"));
 
         const contractAddress = "0xc6846442B5CA46572d2200dD5c9A55BCdA0Ccf37";
+        
         const contractABI = [
 	{
 		"inputs": [
@@ -62,18 +54,16 @@
 
         const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-        
+
         contract.events.XSS({
             fromBlock: 0
-        }, function(error, event) {
-            if (error) {
-                console.error(error);
-            } else {
-                displayEvent(event);
-            }
-        });
+        })
+        .on('data', function(event) {
+            displayEvent(event);
+        })
+        .on('error', console.error);
 
-        
+
         function displayEvent(event) {
             const eventsDiv = document.getElementById('events');
             const eventElement = document.createElement('div');
@@ -84,4 +74,3 @@
     </script>
 </body>
 </html>
-
