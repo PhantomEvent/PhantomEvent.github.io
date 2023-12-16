@@ -2,19 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contract Event Listener</title>
+    <title>XSS Event Listener Demo</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
-    <style>
-        .event {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
-    <h1>Listen to Contract Events</h1>
+    <h1>XSS Events Demo</h1>
     
     <input type="text" id="httpProvider" placeholder="HTTP Provider URL">
     <input type="text" id="contractAddress" placeholder="Contract Address">
@@ -34,40 +26,26 @@
                 return;
             }
 
-            const web3 = new Web3(new Web3.providers.WebsocketProvider(httpProvider));
-
+            const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
 
             const contractABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_xss",
-				"type": "string"
-			}
-		],
-		"name": "triggerXSS",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "xss",
-				"type": "string"
-			}
-		],
-		"name": "XSS",
-		"type": "event"
-	}
-];
+     
+                {
+                    "anonymous": false,
+                    "inputs": [
+                        {
+                            "indexed": false,
+                            "internalType": "string",
+                            "name": "xss",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "XSS",
+                    "type": "event"
+                }
+            ];
 
             contract = new web3.eth.Contract(contractABI, contractAddress);
-
 
             contract.events.XSS({
                 fromBlock: 0
@@ -80,12 +58,11 @@
             });
         }
 
-        // 显示事件信息
+
         function displayEvent(event) {
             const eventsDiv = document.getElementById('events');
             const eventElement = document.createElement('div');
-            eventElement.className = 'event';
-            eventElement.innerText = event.returnValues.xss;
+            eventElement.innerHTML = `Event Data: ${event.returnValues.xss}`;
             eventsDiv.appendChild(eventElement);
         }
     </script>
