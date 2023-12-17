@@ -1,0 +1,28 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_xss",
+				"type": "string"
+			}
+		],
+		"name": "triggerXSS",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "xss",
+				"type": "string"
+			}
+		],
+		"name": "XSS",
+		"type": "event"
+	}
+]
