@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attack6 (misprocessed event)</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: navy; }
+        .section { margin-bottom: 20px; }
+        .code-block { background-color: #f4f4f4; padding: 10px; }
+        .section img, .section video, .section iframe { width: 100%; max-width: 600px; height: auto; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Attack6 (misprocessed event)</h1>
+
+    <div class="section">
+        <h2>POC Code</h2>
+        <pre class="code-block"><code>
+            // SPDX-License-Identifier: MIT
+            pragma solidity ^0.8.0;
+            
+            contract XSS {
+            
+                event XSS(string xss);
+            
+            
+                function triggerXSS(string memory _xss) public {
+                    emit XSS(_xss);
+                }
+            }
+            
+            
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Demo Page</h2>
+        <a href="https://phantomevent.github.io/A6.html">Visit the Demo Page</a>
+    </div>
+
+    <div class="section">
+        <h2>Demo Video</h2>
+        <video controls>
+            <source src="demo-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- <iframe src="https://www.youtube.com/embed/视频ID" frameborder="0" allowfullscreen></iframe> -->
+    </div>
+</body>
+</html>
