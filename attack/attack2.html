@@ -40,7 +40,7 @@
             
             function deposit(address token, uint amount, uint destinationChainId) external {
                 require(amount > 0, "Deposit amount must be greater than 0");
-                safeTransfer(msg.sender, address(this), amount);
+                safeTransfer(msg.sender, token, amount);
                 tokenBalances[msg.sender][token] += amount;
                 emit Deposit(msg.sender, amount, token, destinationChainId);
             }
