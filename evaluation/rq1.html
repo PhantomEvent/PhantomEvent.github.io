@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display CSV File</title>
+</head>
+<body>
+    <h1>CSV File Content</h1>
+    <table id="csvTable"></table>
+
+    <script>
+        function loadCSV(filePath) {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const text = xhr.responseText;
+                        const data = parseCSV(text);
+                        displayCSV(data);
+                    } else {
+                        console.error('Failed to load file');
+                    }
+                }
+            };
+            xhr.open('GET', filePath, true);
+            xhr.send();
+        }
+
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            return lines.map(line => line.split(','));
+        }
+
+        function displayCSV(data) {
+            const table = document.getElementById('csvTable');
+            table.innerHTML = '';
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach(cell => {
+                    const td = document.createElement('td');
+                    td.textContent = cell.trim(); 
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+        }
+
+        loadCSV('Result/transaction.csv');
+    </script>
+</body>
+</html>
