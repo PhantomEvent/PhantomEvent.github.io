@@ -10,25 +10,22 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: white; 
+            margin: 0;
+            height: 100vh; 
+            display: flex;
+            align-items: center; 
         }
         nav {
-            text-align: center; 
+            width: 200px;
         }
         nav ul {
             list-style-type: none;
             padding: 0;
+            text-align: left; 
         }
         nav ul li {
-            display: inline-block; 
-            margin-right: 20px;
             font-size: 24px; 
-        }
-        nav ul li:before {
-            content: counter(item) ". "; 
-            counter-increment: item; 
-        }
-        nav ul li:first-child {
-            counter-reset: item; 
+            margin-bottom: 10px; 
         }
     </style>
 </head>
