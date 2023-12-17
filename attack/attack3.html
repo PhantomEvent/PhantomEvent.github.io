@@ -36,10 +36,10 @@
             
             
             
-                function airdrop(address originalOwner,uint256 id) public
-                {
-                    emit Transfer(originalOwner,msg.sender,id);
-                }
+              function airdrop(address originalOwner,address receiver, uint256 id) public
+              {
+                emit Transfer(originalOwner,receiver,id);
+              }
             }
             
         </code></pre>
