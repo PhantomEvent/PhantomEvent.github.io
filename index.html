@@ -7,16 +7,28 @@
             font-family: Arial, sans-serif;
             background-image: url('https://phantomevent.github.io/phantom.png'); 
             background-size: cover;
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: white; 
+        }
+        nav {
+            text-align: center; 
         }
         nav ul {
             list-style-type: none;
+            padding: 0;
         }
         nav ul li {
-            display: inline;
+            display: inline-block; 
             margin-right: 20px;
+            font-size: 24px; 
+        }
+        nav ul li:before {
+            content: counter(item) ". "; 
+            counter-increment: item; 
+        }
+        nav ul li:first-child {
+            counter-reset: item; 
         }
     </style>
 </head>
