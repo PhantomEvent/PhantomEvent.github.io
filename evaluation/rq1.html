@@ -1,50 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Display CSV File</title>
+    <title>Prevalence of Phantom Events (RQ1)</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h2 { color: navy; margin-top: 20px; }
+        .content { margin-bottom: 15px; }
+    </style>
 </head>
 <body>
-    <h1>CSV File Content</h1>
-    <table id="csvTable"></table>
+    <h1>Prevalence of Phantom Events (RQ1)</h1>
 
-    <script>
-        function loadCSV(filePath) {
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        const text = xhr.responseText;
-                        const data = parseCSV(text);
-                        displayCSV(data);
-                    } else {
-                        console.error('Failed to load file');
-                    }
-                }
-            };
-            xhr.open('GET', filePath, true);
-            xhr.send();
-        }
+    <div class="content">
+        <h2>Analysis of phantom events in transaction logs</h2>
+        <p>Explore the prevalence and characteristics of phantom events within transaction logs.</p>
+        <a href="https://example.com/code-link">Code Link</a> | 
+        <a href="https://example.com/result.csv">Result CSV</a>
+    </div>
 
-        function parseCSV(text) {
-            const lines = text.split('\n');
-            return lines.map(line => line.split(','));
-        }
+    <div class="content">
+        <h2>Analysis of ERC 20 transfer 9 addresses</h2>
+        <p>Detailed analysis of ERC 20 token transfers involving 9 specific addresses.</p>
+        <a href="https://example.com/result1">Result 1</a> | 
+        <a href="https://example.com/result2">Result 2</a> | 
+        <a href="https://example.com/result27">Result 27</a>
+    </div>
 
-        function displayCSV(data) {
-            const table = document.getElementById('csvTable');
-            table.innerHTML = '';
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                row.forEach(cell => {
-                    const td = document.createElement('td');
-                    td.textContent = cell.trim(); 
-                    tr.appendChild(td);
-                });
-                table.appendChild(tr);
-            });
-        }
-
-        loadCSV('https://phantomevent.github.io/Result/transaction.csv');
-    </script>
 </body>
 </html>
