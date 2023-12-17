@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Real-World Attack Feasibility (RQ3)</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        h2 { color: navy; margin-top: 20px; }
-        .section { margin-bottom: 25px; }
-        .section img { width: 100%; max-width: 600px; height: auto; margin-top: 10px; }
-    </style>
-</head>
+    <head>
+        <title>Real-World Attack Feasibility (RQ3)</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            h2 { color: navy; margin-top: 20px; }
+            .section { margin-bottom: 25px; }
+            .link-image { margin-bottom: 15px; } 
+            .section img { width: 100%; max-width: 600px; height: auto; margin-top: 10px; }
+        </style>
+    </head>
 <body>
     <h1>Real-World Attack Feasibility (RQ3)</h1>
 
     <div class="section">
         <h2>Blockchain Explorers</h2>
-        <p>we generated fake ERC-20 token transfer events without conducting any real token transfers in BNB Smart Chain This method effectively deceived five blockchain explorers—BscScan, oklink, Bitquery, Tokenview, and Bsctrace.</p>
-        <p>BSC transaction hash: 0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328</p>
-        <a href="https://explorer.bitquery.io/bsc/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328/tracing">Bitquery</a>
-        <a href="https://bscscan.com/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">BSCSCAN</a>
-        <a href="https://bsctrace.com/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">BSCTrace</a>
-        <a href="https://www.oklink.com/bsc/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">OKLINK</a>
-        <a href="https://bsc.tokenview.io/cn/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">Tokenview</a>
-        <img src="rq3_figure/Bitquery.png" alt="Bitquery">
-        <img src="rq3_figure/BSCSCAN.png" alt="BSCSCAN">
-        <img src="rq3_figure/BSCTrace.png" alt="BSCTrace">
-        <img src="rq3_figure/OKLINK.png" alt="OKLINK">
-        <img src="rq3_figure/Tokenview.png" alt="Tokenview">
+        <div class="link-image">
+            <a href="https://explorer.bitquery.io/bsc/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328/tracing">Bitquery</a>
+            <img src="rq3_figure/Bitquery.png" alt="Bitquery">
+        </div>
+        <div class="link-image">
+            <a href="https://bscscan.com/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">BSCSCAN</a>
+            <img src="rq3_figure/BSCSCAN.png" alt="BSCSCAN">
+        </div>
+        <div class="link-image">
+            <a href="https://bsctrace.com/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">BSCTrace</a>
+            <img src="rq3_figure/BSCTrace.png" alt="BSCTrace">
+        </div>
+        <div class="link-image">
+            <a href="https://www.oklink.com/bsc/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">OKLINK</a>
+            <img src="rq3_figure/OKLINK.png" alt="OKLINK">
+        </div>
+        <div class="link-image">
+            <a href="https://bsc.tokenview.io/cn/tx/0xf101008f006919a68c6f88a3c4d2438c8e70e285e28d4fbe7a6ca0afa8752328">Tokenview</a>
+            <img src="rq3_figure/Tokenview.png" alt="Tokenview">
+        </div>
     </div>
 
     <div class="section">
         <h2>NFT Marketplaces</h2>
-        <p>Description</p>
+        <p>We tried to replay the “sleepminting” attack on two NFT marketplaces, Opensea and Rarible. </p>
         <img src="nft-marketplaces-image.jpg" alt="NFT Marketplaces">
         <a href="nft-marketplaces-link">Link</a>
     </div>
