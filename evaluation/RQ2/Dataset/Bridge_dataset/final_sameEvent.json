@@ -492,6 +492,10 @@
         "0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a.EthVaultImpl.EthVaultImpl.withdraw",
         "0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a.EthVaultImpl.EthVaultImpl.withdrawNFT"
     ],
+    "OnBridgeReceived0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a": [
+        "0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a.EthVaultImpl.EthVaultImpl.withdraw",
+        "0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a.EthVaultImpl.EthVaultImpl.withdrawNFT"
+    ],
     "Burn0x662b67d00a13faf93254714dd601f5ed49ef2f51": [
         "0x662b67d00a13faf93254714dd601f5ed49ef2f51.ORCToken.ORCToken.burn",
         "0x662b67d00a13faf93254714dd601f5ed49ef2f51.ORCToken.ORCToken.burnFrom"
