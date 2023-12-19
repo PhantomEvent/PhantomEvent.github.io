@@ -199,7 +199,7 @@ def get_condition(contract_path):
     return all_event
 
 if __name__ == "__main__":
-    contract_path = r"/home/ubuntu/event/two_bridge/Orbit/Orbit/Etherscan/EthVault/EthVault_impl.sol"  # Solidity合约文件路径
+    contract_path = r"/home/ubuntu/event/two_bridge/Orbit/Orbit/Etherscan/EthVault/EthVault_impl.sol"  
     expression_path = r"./final_expression/0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a_EthVault_impl.json"
     func_path = r"./final_func_expression/0x1Bf68A9d1EaEe7826b3593C20a0ca93293cb489a_EthVault_impl.json"
 

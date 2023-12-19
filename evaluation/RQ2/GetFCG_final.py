@@ -219,7 +219,7 @@ def getReturnConstraint(contract_path):
 
 
 if __name__ == "__main__":
-    contract_path = r"/home/ubuntu/event/Bridge.sol"  # Solidity合约文件路径
+    contract_path = r"/home/ubuntu/event/Bridge.sol"  
     expression_path = r"./func_expression/Bridge.json"
     # func_path = r"./func_expression/func_0x0ca553DE0599a79Aaf43943cf254E60183a0cCA3.json"
     res = getReturnConstraint(contract_path)
