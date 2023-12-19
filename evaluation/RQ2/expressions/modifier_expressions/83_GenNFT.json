@@ -1,0 +1,1 @@
+[{"name": "onlyOwner", "arguments": [], "related_expression": ["owner()==_msgSender()"], "vars": {}, "related_expression_type": ["Condition"]}, {"name": "onlyTrusted", "arguments": [], "related_expression": ["_isTrusted[msg.sender]||msg.sender==owner()"], "vars": {"_isTrusted": "mapping(address => bool)", "msg.sender": "address"}, "related_expression_type": ["Condition"]}]

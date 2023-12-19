@@ -1,0 +1,1 @@
+[{"name": "onlyGov", "arguments": [], "related_expression": ["msg.sender==gov"], "vars": {"gov": "address", "msg.sender": "address"}, "related_expression_type": ["Condition"]}]

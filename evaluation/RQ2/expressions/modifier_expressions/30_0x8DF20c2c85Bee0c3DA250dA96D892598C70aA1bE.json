@@ -1,0 +1,1 @@
+[{"name": "onlyOwner", "arguments": [], "related_expression": ["isOwner()"], "vars": {}, "related_expression_type": ["Condition"]}, {"name": "notNull", "arguments": ["_address--address"], "related_expression": ["_address!=NULL_ADDRESS"], "vars": {"NULL_ADDRESS": "address", "_address": "address"}, "related_expression_type": ["Condition"]}]

@@ -1,0 +1,1 @@
+[{"name": "onlyCounterpartGateway", "arguments": [], "related_expression": ["msg.sender==bridge", "l2ToL1Sender==counterpartGateway"], "vars": {"_inbox": "address", "bridge": "address", "l2ToL1Sender": "address", "counterpartGateway": "address", "inbox": "address", "msg.sender": "address"}, "related_expression_type": ["Condition", "Condition"]}]

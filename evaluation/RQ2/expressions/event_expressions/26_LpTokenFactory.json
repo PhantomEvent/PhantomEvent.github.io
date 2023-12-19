@@ -1,0 +1,556 @@
+[
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "amount": "uint256",
+            "from": "address",
+            "fromBalance": "uint256",
+            "to": "address"
+        },
+        "info": [
+            "ERC20",
+            "_transfer",
+            "Transfer",
+            [
+                "from--variables",
+                "to--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "from!=address(0)",
+            "to!=address(0)",
+            "_beforeTokenTransfer(from,to,amount)",
+            "fromBalance=_balances[from]",
+            "fromBalance>=amount",
+            "_balances[from]=fromBalance-amount",
+            "_balances[to]+=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_=",
+            "Condition",
+            "AssignmentOperation_=",
+            "AssignmentOperation_+="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "_totalSupply": "uint256",
+            "account": "address",
+            "amount": "uint256"
+        },
+        "info": [
+            "ERC20",
+            "_mint",
+            "Transfer",
+            [
+                "TMP_48--variables",
+                "account--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "account!=address(0)",
+            "_beforeTokenTransfer(address(0),account,amount)",
+            "_totalSupply+=amount",
+            "_balances[account]+=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_+=",
+            "AssignmentOperation_+="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "_totalSupply": "uint256",
+            "account": "address",
+            "accountBalance": "uint256",
+            "amount": "uint256"
+        },
+        "info": [
+            "ERC20",
+            "_burn",
+            "Transfer",
+            [
+                "account--variables",
+                "TMP_60--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "account!=address(0)",
+            "_beforeTokenTransfer(account,address(0),amount)",
+            "accountBalance=_balances[account]",
+            "accountBalance>=amount",
+            "_balances[account]=accountBalance-amount",
+            "_totalSupply-=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_=",
+            "Condition",
+            "AssignmentOperation_=",
+            "AssignmentOperation_-="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "amount": "uint256",
+            "owner": "address",
+            "spender": "address",
+            "_allowances": "mapping(address => mapping(address => uint256))"
+        },
+        "info": [
+            "ERC20",
+            "_approve",
+            "Approval",
+            [
+                "owner--variables",
+                "spender--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "owner!=address(0)",
+            "spender!=address(0)",
+            "_allowances[owner][spender]=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "Condition",
+            "AssignmentOperation_="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyExclusive",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "newMember": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "ExpandedERC20",
+            "resetMember",
+            "ResetExclusiveMember",
+            [
+                "roleId--variables",
+                "newMember--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyExclusive(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].exclusiveRoleMembership.resetMember(newMember)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "newMember": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "ExpandedERC20",
+            "addMember",
+            "AddedSharedMember",
+            [
+                "roleId--variables",
+                "newMember--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].sharedRoleMembership.addMember(newMember)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "memberToRemove": "address",
+            "msg.sender": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "ExpandedERC20",
+            "removeMember",
+            "RemovedSharedMember",
+            [
+                "roleId--variables",
+                "memberToRemove--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].sharedRoleMembership.removeMember(memberToRemove)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleHolder"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "ExpandedERC20",
+            "renounceMembership",
+            "RemovedSharedMember",
+            [
+                "roleId--variables",
+                "msg.sender--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleHolder(roleId)",
+            "roles[roleId].sharedRoleMembership.removeMember(msg.sender)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "amount": "uint256",
+            "from": "address",
+            "fromBalance": "uint256",
+            "to": "address"
+        },
+        "info": [
+            "ExpandedERC20",
+            "_transfer",
+            "Transfer",
+            [
+                "from--variables",
+                "to--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "from!=address(0)",
+            "to!=address(0)",
+            "_beforeTokenTransfer(from,to,amount)",
+            "fromBalance=_balances[from]",
+            "fromBalance>=amount",
+            "_balances[from]=fromBalance-amount",
+            "_balances[to]+=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_=",
+            "Condition",
+            "AssignmentOperation_=",
+            "AssignmentOperation_+="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "_totalSupply": "uint256",
+            "account": "address",
+            "amount": "uint256"
+        },
+        "info": [
+            "ExpandedERC20",
+            "_mint",
+            "Transfer",
+            [
+                "TMP_142--variables",
+                "account--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "account!=address(0)",
+            "_beforeTokenTransfer(address(0),account,amount)",
+            "_totalSupply+=amount",
+            "_balances[account]+=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_+=",
+            "AssignmentOperation_+="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "_balances": "mapping(address => uint256)",
+            "_totalSupply": "uint256",
+            "account": "address",
+            "accountBalance": "uint256",
+            "amount": "uint256"
+        },
+        "info": [
+            "ExpandedERC20",
+            "_burn",
+            "Transfer",
+            [
+                "account--variables",
+                "TMP_154--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "account!=address(0)",
+            "_beforeTokenTransfer(account,address(0),amount)",
+            "accountBalance=_balances[account]",
+            "accountBalance>=amount",
+            "_balances[account]=accountBalance-amount",
+            "_totalSupply-=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "CallExpression",
+            "AssignmentOperation_=",
+            "Condition",
+            "AssignmentOperation_=",
+            "AssignmentOperation_-="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [],
+        "vars": {
+            "amount": "uint256",
+            "owner": "address",
+            "spender": "address",
+            "_allowances": "mapping(address => mapping(address => uint256))"
+        },
+        "info": [
+            "ExpandedERC20",
+            "_approve",
+            "Approval",
+            [
+                "owner--variables",
+                "spender--variables",
+                "amount--variables"
+            ]
+        ],
+        "related_expression": [
+            "owner!=address(0)",
+            "spender!=address(0)",
+            "_allowances[owner][spender]=amount"
+        ],
+        "related_expression_type": [
+            "Condition",
+            "Condition",
+            "AssignmentOperation_="
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyExclusive",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "newMember": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "MultiRole",
+            "resetMember",
+            "ResetExclusiveMember",
+            [
+                "roleId--variables",
+                "newMember--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyExclusive(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].exclusiveRoleMembership.resetMember(newMember)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "newMember": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "MultiRole",
+            "addMember",
+            "AddedSharedMember",
+            [
+                "roleId--variables",
+                "newMember--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].sharedRoleMembership.addMember(newMember)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleManager"
+        ],
+        "vars": {
+            "memberToRemove": "address",
+            "msg.sender": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "MultiRole",
+            "removeMember",
+            "RemovedSharedMember",
+            [
+                "roleId--variables",
+                "memberToRemove--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleManager(roleId)",
+            "roles[roleId].sharedRoleMembership.removeMember(memberToRemove)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    },
+    {
+        "isloop": false,
+        "loop_info": [],
+        "modifier": [
+            "onlyShared",
+            "onlyRoleHolder"
+        ],
+        "vars": {
+            "msg.sender": "address",
+            "roleId": "uint256",
+            "roles": "mapping(uint256 => MultiRole.Role)"
+        },
+        "info": [
+            "MultiRole",
+            "renounceMembership",
+            "RemovedSharedMember",
+            [
+                "roleId--variables",
+                "msg.sender--variables",
+                "msg.sender--variables"
+            ]
+        ],
+        "related_expression": [
+            "onlyShared(roleId)",
+            "onlyRoleHolder(roleId)",
+            "roles[roleId].sharedRoleMembership.removeMember(msg.sender)"
+        ],
+        "related_expression_type": [
+            "CallExpression",
+            "CallExpression",
+            "CallExpression"
+        ]
+    }
+]

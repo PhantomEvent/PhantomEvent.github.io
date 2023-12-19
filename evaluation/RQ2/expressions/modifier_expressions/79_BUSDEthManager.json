@@ -1,0 +1,1 @@
+[{"name": "onlyWallet", "arguments": [], "related_expression": ["msg.sender==wallet"], "vars": {"msg.sender": "address", "wallet": "address"}, "related_expression_type": ["Condition"]}]

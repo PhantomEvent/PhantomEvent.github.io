@@ -1,0 +1,1 @@
+[{"name": "authorized", "arguments": [], "related_expression": ["msg.sender==address(this)"], "vars": {"msg.sender": "address", "this": "address"}, "related_expression_type": ["Condition"]}]

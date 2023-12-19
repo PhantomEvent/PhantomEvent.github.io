@@ -1,0 +1,1 @@
+[{"name": "onlyOwner", "arguments": [], "related_expression": ["owner()==_msgSender()"], "vars": {}, "related_expression_type": ["Condition"]}, {"name": "stopInEmergency", "arguments": [], "related_expression": [], "vars": {"stopped": "bool"}, "related_expression_type": []}]

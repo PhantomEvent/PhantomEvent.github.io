@@ -1,0 +1,1 @@
+[{"name": "ifAdmin", "arguments": [], "related_expression": [], "vars": {"msg.sender": "address"}, "related_expression_type": []}, {"name": "onlyOwner", "arguments": [], "related_expression": ["owner()==_msgSender()"], "vars": {}, "related_expression_type": ["Condition"]}]
