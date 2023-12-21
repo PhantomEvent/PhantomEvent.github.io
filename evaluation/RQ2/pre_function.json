@@ -1,0 +1,12 @@
+{
+    "vars": {
+        "example": "uint",
+        "example1": "address"
+    },
+    "constraints": [
+        "example>1"
+    ],
+    "constraint_types": [
+        "Condition"
+    ]
+}
